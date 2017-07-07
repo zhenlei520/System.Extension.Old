@@ -126,9 +126,9 @@ namespace EInfrastructure.HelpCommon
         /// <returns></returns>
         public static decimal ConvertToDecimal(this object obj, decimal defaultVal)
         {
-            int result;
+            decimal result;
             if (obj != null)
-                if (int.TryParse(obj.ToString(), out result))
+                if (decimal.TryParse(obj.ToString(), out result))
                     return result;
                 else
                     return defaultVal;
@@ -145,6 +145,41 @@ namespace EInfrastructure.HelpCommon
             decimal result;
             if (obj != null)
                 if (decimal.TryParse(obj.ToString(), out result))
+                    return result;
+                else
+                    return defaultVal;
+            return defaultVal;
+        }
+        #endregion
+
+        #region obj转double
+        /// <summary>
+        /// obj转double
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="defaultVal">默认值</param>
+        /// <returns></returns>
+        public static double ConvertToDouble(this object obj, double defaultVal)
+        {
+            double result;
+            if (obj != null)
+                if (double.TryParse(obj.ToString(), out result))
+                    return result;
+                else
+                    return defaultVal;
+            return defaultVal;
+        }
+        /// <summary>
+        /// obj转Int
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="defaultVal">默认值</param>
+        /// <returns></returns>
+        public static double? ConvertToDouble(this object obj, double? defaultVal = null)
+        {
+            double result;
+            if (obj != null)
+                if (double.TryParse(obj.ToString(), out result))
                     return result;
                 else
                     return defaultVal;

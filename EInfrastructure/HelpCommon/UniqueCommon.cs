@@ -14,19 +14,6 @@ namespace EInfrastructure.HelpCommon
         public static string Guids => Guid.NewGuid().ToString().Replace("-", "");
 
         #endregion
-
-        #region 判断是否为Guid
-        /// <summary>
-        /// 判断是否为Guid
-        /// </summary>
-        /// <param name="strSrc"></param>
-        /// <returns></returns>
-        public static bool IsGuid(string strSrc)
-        {
-            Guid g;
-            return Guid.TryParse(strSrc, out g);
-        }
-        #endregion
     }
 }
 
