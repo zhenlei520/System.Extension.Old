@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using EInfrastructure.Infrastructure.Ioc;
 
 namespace EInfrastructure.Infrastructure.Repository
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDependency,IDisposable
     {
         #region Interface
 
