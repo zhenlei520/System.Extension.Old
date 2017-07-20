@@ -309,7 +309,7 @@ namespace EInfrastructure.HelpCommon
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public static string ToSha1(string parameter)
+        public static string ToSha1(this string parameter)
         {
             SHA1 sha1 = new SHA1CryptoServiceProvider();
             byte[] bytesOldString = Encoding.Default.GetBytes(parameter);
@@ -330,7 +330,7 @@ namespace EInfrastructure.HelpCommon
         /// <param name="parameter">待加密参数</param>
         /// <param name="isReturnNum">是否返回为加密后字符的Byte代码</param>
         /// <returns></returns>
-        public static string Sha256Encrypt(string parameter, bool? isReturnNum = null)
+        public static string Sha256Encrypt(this string parameter, bool? isReturnNum = null)
         {
             SHA256 sha256 = new SHA256Managed();
             var tmpByte = sha256.ComputeHash(GetKeyByteArray(parameter));
@@ -347,7 +347,7 @@ namespace EInfrastructure.HelpCommon
         /// <param name="parameter">待加密参数</param>
         /// <param name="isReturnNum">是否返回为加密后字符的Byte代码</param>
         /// <returns></returns>
-        public static string Sha512Encrypt(string parameter, bool? isReturnNum = null)
+        public static string Sha512Encrypt(this string parameter, bool? isReturnNum = null)
         {
             SHA512 sha512 = new SHA512Managed();
             var tmpByte = sha512.ComputeHash(GetKeyByteArray(parameter));
@@ -398,7 +398,7 @@ namespace EInfrastructure.HelpCommon
         /// </summary>
         /// <param name="str">字符串</param>
         /// <returns>编码结果</returns>
-        public static string HtmlEncode(string str)
+        public static string HtmlEncode(this string str)
         {
             return HttpUtility.HtmlEncode(str);
         }
@@ -408,7 +408,7 @@ namespace EInfrastructure.HelpCommon
         /// </summary>
         /// <param name="str">字符串</param>
         /// <returns>解码结果</returns>
-        public static string HtmlDecode(string str)
+        public static string HtmlDecode(this string str)
         {
             return HttpUtility.HtmlDecode(str);
         }
@@ -418,7 +418,7 @@ namespace EInfrastructure.HelpCommon
         /// </summary>
         /// <param name="str">字符串</param>
         /// <returns>编码结果</returns>
-        public static string UrlEncode(string str)
+        public static string UrlEncode(this string str)
         {
             return HttpUtility.UrlEncode(str);
         }
@@ -428,7 +428,7 @@ namespace EInfrastructure.HelpCommon
         /// </summary>
         /// <param name="str">字符串</param>
         /// <returns>解码结果</returns>
-        public static string UrlDecode(string str)
+        public static string UrlDecode(this string str)
         {
             return HttpUtility.UrlDecode(str);
         }

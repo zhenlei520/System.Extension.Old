@@ -17,6 +17,10 @@ namespace EInfrastructure.HelpCommon
         private static readonly Regex ZipCodeRegex = new Regex(@"^\d{6}$");
         //数字正则表达式
         private static readonly Regex Numberregex = new Regex(@"^\d*");
+		/// <summary>
+        /// 中文正则表达式
+        /// </summary>
+        private static readonly Regex Chineseregex = new Regex("^[\u4e00-\u9fa5]");
         //IP正则表达式
         private static readonly Regex Ipregex = new Regex(@"^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$");
         //网址正则表达式
@@ -319,6 +323,20 @@ namespace EInfrastructure.HelpCommon
         } 
         #endregion
 
+		#region 判断是否中文
 
+        /// <summary>
+        /// 是否中文
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsChinese(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return false;
+            return Chineseregex.IsMatch(s);
+        }
+
+        #endregion
     }
 }
