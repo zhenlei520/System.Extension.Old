@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("EInfrastructure")]
-[assembly: AssemblyDescription("第一个基础设施层类库,将平时使用最多的类库进行封装，可直接引用使用，后期会持续完善的.")]
+[assembly: AssemblyDescription("第一个基础设施层类库,将平时使用最多的类库进行封装，可直接引用使用，后期会持续完善的.源代码请移至GitHub，https://github.com/zhenlei520/System.Extension，有什么问题也可以添加我qq:839238345私聊我,大多数用到的方法都有，如果发现有错误的方法，或者可以优化的地方，也希望能联系我，核实后会尽快更正的")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("zhenlei")]
 [assembly: AssemblyProduct("EInfrastructure")]
