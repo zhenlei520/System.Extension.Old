@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace EInfrastructure.Infrastructure.Repository
+namespace EInfrastructure.Infrastructure.Interfaces.Repository
 {
     public interface IRepository<T> : IDisposable where T : class
     {

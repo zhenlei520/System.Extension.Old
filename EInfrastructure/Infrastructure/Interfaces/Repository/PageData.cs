@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EInfrastructure.Infrastructure.Repository
+namespace EInfrastructure.Infrastructure.Interfaces.Repository
 {
     /// <summary>
     /// 分页数据集合

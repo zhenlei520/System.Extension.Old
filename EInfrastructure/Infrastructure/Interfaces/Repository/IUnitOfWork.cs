@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using EInfrastructure.Infrastructure.Ioc;
 
-namespace EInfrastructure.Infrastructure.Repository
+namespace EInfrastructure.Infrastructure.Interfaces.Repository
 {
     public interface IUnitOfWork : IDisposable
     {
