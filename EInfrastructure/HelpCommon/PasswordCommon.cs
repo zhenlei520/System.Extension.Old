@@ -211,7 +211,7 @@ namespace EInfrastructure.HelpCommon
         {
             if (encryptionKey != null)
                 return encryptionKey;
-           return DesEncryptionKeyPresent;
+            return DesEncryptionKeyPresent;
         }
 
         #region DES加密字符串
@@ -288,18 +288,25 @@ namespace EInfrastructure.HelpCommon
         #endregion
 
         #region MD5加密
+
         /// <summary>
         ///  MD5加密
         /// </summary>
         /// <param name="pPassStr"></param>
+        /// <param name="isLower">是否转为小写</param>
         /// <returns></returns>
-        public static string ToMd5Math(this string pPassStr)
+        public static string ToMd5Math(this string pPassStr, bool isLower = true)
         {
-            MD5 md5 = MD5.Create();//实例化一个md5对像  
-            // 加密后是一个字节类型的数组，这里要注意编码UTF8/Unicode等的选择　  
-            byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(pPassStr));
-            // 通过使用循环，将字节类型的数组转换为字符串，此字符串是常规字符格式化所得  
-            return s.Aggregate("", (current, t) => current + t.ToString("X"));
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] hashByte = md5.ComputeHash(Encoding.UTF8.GetBytes(pPassStr));
+            StringBuilder sb = new StringBuilder();
+            if (isLower)
+                foreach (byte item in hashByte)
+                    sb.Append(item.ToString("x").PadLeft(2, '0'));
+            else
+                foreach (byte item in hashByte)
+                    sb.Append(item.ToString("X").PadLeft(2, '0'));
+            return sb.ToString();
         }
         #endregion
 

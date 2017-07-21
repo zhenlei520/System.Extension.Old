@@ -4,7 +4,7 @@ using EInfrastructure.Infrastructure.Ioc;
 
 namespace EInfrastructure.Infrastructure.Repository
 {
-    public interface IUnitOfWork : IDependency,IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         #region Interface
 
