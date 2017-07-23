@@ -65,9 +65,11 @@
     <Compile Include="Infrastructure\Exception\FriendlyException.cs" />
     <Compile Include="Infrastructure\Interfaces\IStartupTask.cs" />
     <Compile Include="Infrastructure\Interfaces\Ioc\IDependency.cs" />
+    <Compile Include="Infrastructure\Interfaces\Repository\ExpressionBuilder.cs" />
     <Compile Include="Infrastructure\Interfaces\Repository\IRepository.cs" />
     <Compile Include="Infrastructure\Interfaces\Repository\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\Interfaces\Repository\PageData.cs" />
+    <Compile Include="Infrastructure\Interfaces\Repository\ParametersRebinder.cs" />
     <Compile Include="Infrastructure\Interfaces\Repository\SortByExtension.cs" />
     <Compile Include="FileCommon\ImageCommon.cs">
       <SubType>ASPXCodeBehind</SubType>
