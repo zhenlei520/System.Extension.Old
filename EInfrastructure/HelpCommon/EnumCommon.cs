@@ -66,7 +66,7 @@ namespace EInfrastructure.HelpCommon
         /// </summary>
         /// <param name="value">要获取描述信息的枚举项。</param>
         /// <returns>枚举想的描述信息。</returns>
-        public static string GetDescription(Enum value)
+        public static string GetDescription(this Enum value)
         {
             Type enumType = value.GetType();
             // 获取枚举常数名称。
