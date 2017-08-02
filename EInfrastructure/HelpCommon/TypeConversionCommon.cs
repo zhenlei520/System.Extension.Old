@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 
 namespace EInfrastructure.HelpCommon
 {
@@ -9,7 +11,7 @@ namespace EInfrastructure.HelpCommon
     {
         #region Methods
 
-        #region 转换类型
+        #region Object转换类型
 
         #region obj转Guid
         /// <summary>
@@ -64,6 +66,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -99,6 +102,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -134,6 +138,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -169,6 +174,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -204,6 +210,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -239,6 +246,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -274,6 +282,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -309,6 +318,7 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        
         /// <summary>
         /// obj转Int
         /// </summary>
@@ -325,6 +335,92 @@ namespace EInfrastructure.HelpCommon
                     return defaultVal;
             return defaultVal;
         }
+        #endregion
+
+        #endregion
+
+        #region 文件类型转换
+
+        #region 转换为Byte数组
+
+        #region Bitmap转换为byte数组
+        /// <summary>
+        /// Bitmap转换为byte数组
+        /// </summary>
+        /// <param name="bt">bt</param>
+        /// <returns></returns>
+        public static byte[] ConvertToByteArray(this Bitmap bt)
+        {
+            MemoryStream ms = new MemoryStream();
+            bt.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return ms.GetBuffer();
+        }
+        #endregion
+
+        #region Stream转换为Byte数组
+        /// <summary>
+        /// Stream转换为Byte数组
+        /// </summary>
+        /// <param name="stream">Stream</param>
+        /// <returns></returns>
+        public static byte[] ConvertToByteArray(this Stream stream)
+        {
+            byte[] bytes = new byte[stream.Length];
+            stream.Read(bytes, 0, bytes.Length);
+            // 设置当前流的位置为流的开始
+            stream.Seek(0, SeekOrigin.Begin);
+            return bytes;
+        }
+        #endregion
+
+        #region String转换为Byte数组
+        /// <summary>
+        /// String转换为Byte数组
+        /// </summary>
+        /// <param name="para">待转换参数</param>
+        /// <returns></returns>
+        public static byte[] ConvertToByteArray(this string para)
+        {
+            System.Text.UnicodeEncoding converter = new System.Text.UnicodeEncoding();
+            return converter.GetBytes(para);
+        }
+
+        #endregion
+
+        #endregion
+
+        #region 转换为Stream
+
+        #region 将 byte[] 转成 Stream
+        /// <summary>
+        /// 将 byte[] 转成 Stream
+        /// </summary>
+        /// <param name="bytes">byte数组</param>
+        /// <returns></returns>
+        public static Stream ConvertToStream(this byte[] bytes)
+        {
+            Stream stream = new MemoryStream(bytes);
+            return stream;
+        }
+        #endregion
+
+        #endregion
+
+        #region 转换为String
+
+        #region byte数组转换为string
+        /// <summary>
+        /// byte数组转换为string
+        /// </summary>
+        /// <param name="bytes">byte数组</param>
+        /// <returns></returns>
+        public static string ConvertToString(this byte[] bytes)
+        {
+            System.Text.UnicodeEncoding converter = new System.Text.UnicodeEncoding();
+            return converter.GetString(bytes);
+        } 
+        #endregion
+
         #endregion
 
         #endregion
