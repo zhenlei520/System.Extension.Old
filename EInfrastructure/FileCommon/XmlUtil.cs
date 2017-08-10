@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace EInfrastructure.FileCommon
 {
@@ -12,7 +13,6 @@ namespace EInfrastructure.FileCommon
     /// </summary>
     public class XmlUtil
     {
-        #region Methods
         #region 返回XML的dataset表示形式
         /// <summary>
         /// 返回XML的dataset表示形式
@@ -565,6 +565,63 @@ namespace EInfrastructure.FileCommon
         }
 
         #endregion
+
+        #region 根据xml文件得到xml对象
+        /// <summary>
+        /// 根据xml文件得到xml对象
+        /// </summary>
+        /// <param name="type">目标类型（Type类型）</param>
+        /// <param name="filePath">XML文件路径</param>
+        /// <returns>序列对象</returns>
+        public static T DeserializeByXml<T>(Type type, string filePath)
+        {
+            FileStream fs = null;
+            try
+            {
+                fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                XmlSerializer serializer = new XmlSerializer(type);
+                return (T)serializer.Deserialize(fs);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (fs != null)
+                {
+                    fs.Close();
+                }
+            }
+        }
+        #endregion
+
+        #region 将对象保存到xml文件中
+        /// <summary>
+        /// 将对象保存到xml文件中
+        /// </summary>
+        /// <param name="obj">序列对象</param>
+        /// <param name="filePath">XML文件路径</param>
+        /// <returns>是否成功</returns>
+        public static bool SerializeToXml(object obj, string filePath)
+        {
+            FileStream fs = null;
+            try
+            {
+                fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
+                XmlSerializer serializer = new XmlSerializer(obj.GetType());
+                serializer.Serialize(fs, obj);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                fs?.Close();
+            }
+            return true;
+        }
 
         #endregion
     }
