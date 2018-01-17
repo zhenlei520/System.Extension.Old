@@ -5,7 +5,6 @@ namespace EInfrastructure.HelpCommon.Serialization.JsonAdapter
 {
     public class NewtonsoftJsonProvider : BaseJsonProvider
     {
-
         /// <summary>
         /// json序列化
         /// </summary>
@@ -15,7 +14,6 @@ namespace EInfrastructure.HelpCommon.Serialization.JsonAdapter
         {
             return JsonConvert.SerializeObject(o);
         }
-
 
         /// <summary>
         /// json反序列化

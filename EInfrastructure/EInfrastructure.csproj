@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{200A136E-D74E-408A-82F4-6E60F012628E}</ProjectGuid>
+    <ProjectGuid>{6C79A01A-2B16-4C3A-A6EF-A4D56355E7BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EInfrastructure</RootNamespace>
     <AssemblyName>EInfrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,11 +28,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -47,30 +44,22 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileCommon\FileCommon.cs" />
-    <Compile Include="HelpCommon\Systems\AssemblyCommon.cs" />
-    <Compile Include="HelpCommon\TaskExtend.cs" />
-    <Compile Include="HelpCommon\WebHelpCommon.cs" />
-    <Compile Include="Infrastructure\Entity\ResultContentEntity.cs" />
-    <Compile Include="Infrastructure\Entity\WebEntity.cs" />
-    <Compile Include="Infrastructure\Enum\AnimalEnum.cs" />
-    <Compile Include="Infrastructure\Enum\CodeStatusEnum.cs" />
-    <Compile Include="Infrastructure\Enum\ConfigEnum.cs" />
-    <Compile Include="Infrastructure\Enum\ConstellationEnum.cs" />
+    <Compile Include="Ddd\Repository\AddAndUpdates.cs" />
+    <Compile Include="Ddd\Repository\Adds.cs" />
+    <Compile Include="Ddd\Repository\AggregateRoots.cs" />
+    <Compile Include="Ddd\Repository\Fulls.cs" />
+    <Compile Include="Infrastructure\ContractResolver\LowerCaseContractResolver.cs" />
+    <Compile Include="Infrastructure\ContractResolver\NullToEmptyStringResolver.cs" />
+    <Compile Include="Infrastructure\ContractResolver\UnderlineSplitContractResolver.cs" />
+    <Compile Include="Infrastructure\Exception\AuthException.cs" />
     <Compile Include="Infrastructure\Exception\BusinessException.cs" />
-    <Compile Include="Infrastructure\Exception\ConfigException.cs" />
     <Compile Include="Infrastructure\Exception\FriendlyException.cs" />
-    <Compile Include="Infrastructure\Interfaces\IStartupTask.cs" />
-    <Compile Include="Infrastructure\Interfaces\Ioc\IDependency.cs" />
-    <Compile Include="Infrastructure\Interfaces\Repository\ExpressionBuilder.cs" />
-    <Compile Include="Infrastructure\Interfaces\Repository\IRepository.cs" />
-    <Compile Include="Infrastructure\Interfaces\Repository\IUnitOfWork.cs" />
-    <Compile Include="Infrastructure\Interfaces\Repository\PageData.cs" />
-    <Compile Include="Infrastructure\Interfaces\Repository\ParametersRebinder.cs" />
-    <Compile Include="Infrastructure\Interfaces\Repository\SortByExtension.cs" />
+    <Compile Include="Infrastructure\Interfaces\Ioc\IPerRequest.cs" />
+    <Compile Include="FileCommon\FileCommon.cs" />
     <Compile Include="FileCommon\ImageCommon.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -88,9 +77,9 @@
     <Compile Include="HelpCommon\EMailCommon.cs" />
     <Compile Include="HelpCommon\EnumCommon.cs" />
     <Compile Include="HelpCommon\Enumerable\EnumerableExtend.cs" />
+    <Compile Include="HelpCommon\ListCommon.cs" />
     <Compile Include="HelpCommon\MathCommon.cs" />
     <Compile Include="HelpCommon\NumberTypeCommon.cs" />
-    <Compile Include="HelpCommon\ListCommon.cs" />
     <Compile Include="HelpCommon\PasswordCommon.cs" />
     <Compile Include="HelpCommon\PinYinCommon.cs" />
     <Compile Include="HelpCommon\RandomCommon.cs" />
@@ -104,25 +93,42 @@
     <Compile Include="HelpCommon\Serialization\JsonCommon.cs" />
     <Compile Include="HelpCommon\Serialization\XmlCommon.cs" />
     <Compile Include="HelpCommon\StringCommon.cs" />
+    <Compile Include="HelpCommon\Systems\AssemblyCommon.cs" />
+    <Compile Include="HelpCommon\TaskExtend.cs" />
     <Compile Include="HelpCommon\TimeCommon.cs" />
     <Compile Include="HelpCommon\TimeCommonExt.cs" />
     <Compile Include="HelpCommon\TypeConversionCommon.cs" />
     <Compile Include="HelpCommon\UniqueCommon.cs" />
     <Compile Include="HelpCommon\ValidateCodeCommon.cs" />
     <Compile Include="HelpCommon\ValidateCommon.cs" />
+    <Compile Include="HelpCommon\WebHelpCommon.cs" />
     <Compile Include="HttpCommon\DntRequest.cs" />
     <Compile Include="HttpCommon\HttpClient.cs" />
+    <Compile Include="Ddd\AggregateRoot.cs" />
+    <Compile Include="Ddd\Entity.cs" />
+    <Compile Include="Ddd\IAggregateRoot.cs" />
+    <Compile Include="Ddd\IEntity.cs" />
+    <Compile Include="Ddd\IUnitOfWork.cs" />
+    <Compile Include="Ddd\Repository\PageData.cs" />
+    <Compile Include="Infrastructure\Entity\WebEntity.cs" />
+    <Compile Include="Infrastructure\Enum\AnimalEnum.cs" />
+    <Compile Include="Infrastructure\Enum\CodeStatusEnum.cs" />
+    <Compile Include="Infrastructure\Enum\ConfigEnum.cs" />
+    <Compile Include="Infrastructure\Enum\ConstellationEnum.cs" />
+    <Compile Include="Infrastructure\Interfaces\Ioc\IDependency.cs" />
+    <Compile Include="Infrastructure\Interfaces\Ioc\ISingleInstance.cs" />
+    <Compile Include="Infrastructure\Interfaces\IStartupTask.cs" />
+    <Compile Include="Infrastructure\EntitiesExtension\ExpressionBuilder.cs" />
+    <Compile Include="Ddd\IQuery.cs" />
+    <Compile Include="Ddd\IRepository.cs" />
+    <Compile Include="Infrastructure\EntitiesExtension\ParametersRebinder.cs" />
+    <Compile Include="Infrastructure\EntitiesExtension\SortByExtension.cs" />
+    <Compile Include="Infrastructure\Key\CodeKey.cs" />
+    <Compile Include="Infrastructure\Key\HttpStatusMessageKey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -189,3 +189,4 @@ _Pvt_Extensions/
 ModelManifest.xml
 *.nupkg
 *.nupkg
+/.vs/System.Extension/v15/Server/sqlite3

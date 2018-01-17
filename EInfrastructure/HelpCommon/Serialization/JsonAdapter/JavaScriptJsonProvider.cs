@@ -3,6 +3,7 @@ using System.Web.Script.Serialization;
 
 namespace EInfrastructure.HelpCommon.Serialization.JsonAdapter
 {
+    /// <inheritdoc />
     /// <summary>
     /// JavaScriptSerializer 方式Json序列化
     /// System.Web.Script.Serialization

@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using EInfrastructure.Infrastructure.Exception;
 
 namespace EInfrastructure.HelpCommon
 {
@@ -134,9 +132,9 @@ namespace EInfrastructure.HelpCommon
                 {
                     return mobile.Substring(0, mobile.Length - 6) + "***" + mobile.Substring(mobile.Length - 3);
                 }
-                throw new BusinessException("请输入正确的手机号码");
+                throw new Exception("请输入正确的手机号码");
             }
-            throw new BusinessException("请输入正确的手机号码");
+            throw new Exception("请输入正确的手机号码");
         }
         #endregion
 

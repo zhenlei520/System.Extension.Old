@@ -1,6 +1,5 @@
 ﻿using EInfrastructure.HelpCommon.Serialization.JsonAdapter;
 using System;
-using EInfrastructure.Infrastructure.Exception;
 
 namespace EInfrastructure.HelpCommon.Serialization
 {
@@ -33,7 +32,7 @@ namespace EInfrastructure.HelpCommon.Serialization
             {
                 return new DataContractJsonProvider();
             }
-            throw new BusinessException("未找到相应的json序列化Provider");
+            throw new Exception("未找到相应的json序列化Provider");
         }
 
         /// <summary>
@@ -49,7 +48,7 @@ namespace EInfrastructure.HelpCommon.Serialization
             }
             catch (Exception)
             {
-                throw new BusinessException($"json序列化出错,jsonMode:{1},序列化类型：{o.GetType().FullName}");
+                throw new Exception($"json序列化出错,jsonMode:{1},序列化类型：{o.GetType().FullName}");
             }
         }
 
@@ -71,7 +70,7 @@ namespace EInfrastructure.HelpCommon.Serialization
             }
             catch (Exception)
             {
-                throw new BusinessException($"json反序列化出错,jsonMode:{1},内容：{s}");
+                throw new Exception($"json反序列化出错,jsonMode:{1},内容：{s}");
             }
         }
 
@@ -89,7 +88,7 @@ namespace EInfrastructure.HelpCommon.Serialization
             }
             catch (Exception)
             {
-                throw new BusinessException($"json反序列化出错,jsonMode:{1},内容：{s}");
+                throw new Exception($"json反序列化出错,jsonMode:{1},内容：{s}");
             }
         }
     }

@@ -9,8 +9,6 @@ namespace EInfrastructure.HelpCommon
     /// </summary>
     public static class TypeConversionCommon
     {
-        #region Methods
-
         #region Object转换类型
 
         #region obj转Guid
@@ -559,6 +557,5 @@ namespace EInfrastructure.HelpCommon
         }
         #endregion
         
-        #endregion
     }
 }

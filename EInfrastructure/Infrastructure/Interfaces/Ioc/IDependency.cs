@@ -1,4 +1,4 @@
-﻿namespace EInfrastructure.Infrastructure.Ioc
+﻿namespace EInfrastructure.Infrastructure.Interfaces.Ioc
 {
     /// <summary>
     /// Ioc注入基础类

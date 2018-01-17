@@ -1,19 +1,17 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using EInfrastructure.Infrastructure.Enum;
-using EInfrastructure.Infrastructure.Exception;
 
 namespace EInfrastructure.HelpCommon
 {
-    /// <summary>
-    /// 加密方法帮助类
-    /// 此类严格执行(方法设置>初始化预设>系统预设)的规则
-    /// </summary>
-    public static class PasswordCommon
+  /// <summary>
+  /// 加密方法帮助类
+  /// 此类严格执行(方法设置>初始化预设>系统预设)的规则
+  /// </summary>
+  public static class PasswordCommon
     {
 
         #region 私有属性
@@ -120,7 +118,7 @@ namespace EInfrastructure.HelpCommon
             AesEncryptionKey = ConfigCommon.GetConfig(AesEncryptionKeyNamePresent);
             if (!string.IsNullOrEmpty(AesEncryptionKey))
                 return AesEncryptionKey;
-            throw new ConfigException(ConfigEnum.AppSetting, AesEncryptionKeyNamePresent);
+            throw new Exception(string.Format(EnumCommon.GetDescription(ConfigEnum.AppSetting), AesEncryptionKeyNamePresent));
         }
         #endregion
 

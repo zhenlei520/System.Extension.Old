@@ -59,7 +59,6 @@ namespace EInfrastructure.FileCommon
         }
         #endregion
 
-
         #region GetBinaryFile：返回所给文件路径的字节数组。
         /// <summary>
         /// GetBinaryFile：返回所给文件路径的字节数组。
