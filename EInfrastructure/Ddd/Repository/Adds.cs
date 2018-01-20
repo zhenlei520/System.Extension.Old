@@ -1,5 +1,4 @@
 ﻿using System;
-using EInfrastructure.HelpCommon;
 
 namespace EInfrastructure.Ddd.Repository
 {

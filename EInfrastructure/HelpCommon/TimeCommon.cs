@@ -698,6 +698,38 @@ namespace EInfrastructure.HelpCommon
             EndYear = 8
         }
         #endregion
+
+        #region 得到13位时间戳
+        /// <summary>
+        /// 得到13位时间戳
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static long GetTimeSpan(DateTime? time = null)
+        {
+            if (time == null)
+                time = DateTime.Now;
+            var startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1, 0, 0, 0, 0));
+            long t = (time.Value.Ticks - startTime.Ticks) / 10000;   //除10000调整为13位      
+            return t;
+        }
+
+        #endregion
+
+
+        #region DateTime时间格式转换为10位不带毫秒的Unix时间戳
+
+        /// <summary>
+        /// DateTime时间格式转换为10位不带毫秒的Unix时间戳
+        /// </summary>
+        /// <param name="time"> DateTime时间格式</param>
+        /// <returns>Unix时间戳格式</returns>
+        public static int ConvertDateTimeInt(System.DateTime time)
+        {
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+            return (int)(time - startTime).TotalSeconds;
+        }
+        #endregion
     }
 }
 

@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ddd\Config\StartTaskRegister.cs" />
     <Compile Include="Ddd\Repository\AddAndUpdates.cs" />
     <Compile Include="Ddd\Repository\Adds.cs" />
     <Compile Include="Ddd\Repository\AggregateRoots.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Infrastructure\ContractResolver\LowerCaseContractResolver.cs" />
     <Compile Include="Infrastructure\ContractResolver\NullToEmptyStringResolver.cs" />
     <Compile Include="Infrastructure\ContractResolver\UnderlineSplitContractResolver.cs" />
+    <Compile Include="Infrastructure\Entity\ResultContent.cs" />
     <Compile Include="Infrastructure\Exception\AuthException.cs" />
     <Compile Include="Infrastructure\Exception\BusinessException.cs" />
     <Compile Include="Infrastructure\Exception\FriendlyException.cs" />
